@@ -1,0 +1,242 @@
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+FF..FFFFF..
+
+Failures:
+
+  1) RelateIq::List#items_by_contact_id can accept a single contact id
+     Failure/Error: let(:list_2) { RelateIq::List.find_by_title('Burundi') }
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./lib/relateiq/list.rb:26:in `find_by_title'
+     # ./spec/lib/relateiq/list_spec.rb:6:in `block (2 levels) in <top (required)>'
+     # ./spec/lib/relateiq/list_spec.rb:125:in `block (3 levels) in <top (required)>'
+
+  2) RelateIq::List#upsert_item creates a post request if no id is provided includes current list id
+     Failure/Error: let(:list_2) { RelateIq::List.find_by_title('Burundi') }
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:post, "https://test.relateiq.com/lists-test/list2id/listitems")
+       stub_request(:put, "https://test.relateiq.com/lists-test/list2id/listitems/listitemid")
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./lib/relateiq/list.rb:26:in `find_by_title'
+     # ./spec/lib/relateiq/list_spec.rb:6:in `block (2 levels) in <top (required)>'
+     # ./spec/lib/relateiq/list_spec.rb:140:in `block (3 levels) in <top (required)>'
+
+  3) RelateIq::List.find_by_title returns a List with a matching title
+     Failure/Error: expect(list_class.find_by_title('Swaziland')).to eq(list_class.all[2])
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./lib/relateiq/list.rb:26:in `find_by_title'
+     # ./spec/lib/relateiq/list_spec.rb:75:in `block (3 levels) in <top (required)>'
+
+  4) RelateIq::List.find_by_title is case insensitive
+     Failure/Error: expect(list_class.find_by_title('swaziland')).to eq(list_class.all[2])
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./lib/relateiq/list.rb:26:in `find_by_title'
+     # ./spec/lib/relateiq/list_spec.rb:79:in `block (3 levels) in <top (required)>'
+
+  5) RelateIq::List.all caches a copy in memory and does not call web method more than once
+     Failure/Error: list_class.all
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./spec/lib/relateiq/list_spec.rb:67:in `block (3 levels) in <top (required)>'
+
+  6) RelateIq::List.all returns field list_options as an array
+     Failure/Error: status_field = RelateIq::List.all[0].fields.find { |f| f[:name] == 'status' }
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./spec/lib/relateiq/list_spec.rb:61:in `block (3 levels) in <top (required)>'
+
+  7) RelateIq::List.all returns an array of lists
+     Failure/Error: expect(list_class.all.count).to eq(6)
+     WebMock::NetConnectNotAllowedError:
+       Real HTTP connections are disabled. Unregistered request: GET https://test.relateiq.com/lists with headers {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}
+       
+       You can stub this request with the following snippet:
+       
+       stub_request(:get, "https://test.relateiq.com/lists").
+         with(:headers => {'Accept'=>'application/json', 'Accept-Encoding'=>'gzip, deflate', 'Content-Type'=>'application/json', 'User-Agent'=>'Ruby'}).
+         to_return(:status => 200, :body => "", :headers => {})
+       
+       registered request stubs:
+       
+       stub_request(:get, "https://test.relateiq.com/lists-test/list2id/listitems/?contactIds=contactid")
+       stub_request(:get, "https://test.relateiq.com/lists-test")
+       
+       ============================================================
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:114:in `request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:270:in `net_http_do_request'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:418:in `block in transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:123:in `start_without_connect'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/webmock-1.21.0/lib/webmock/http_lib_adapters/net_http.rb:150:in `start'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:413:in `transmit'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:176:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/request.rb:41:in `execute'
+     # /Users/dkarter/.rvm/gems/ruby-2.2.2/gems/rest-client-1.7.2/lib/restclient/resource.rb:51:in `get'
+     # ./lib/relateiq/list.rb:22:in `all'
+     # ./spec/lib/relateiq/list_spec.rb:54:in `block (3 levels) in <top (required)>'
+
+Finished in 0.11659 seconds (files took 0.49698 seconds to load)
+11 examples, 7 failures
+
+Failed examples:
+
+rspec ./spec/lib/relateiq/list_spec.rb:122 # RelateIq::List#items_by_contact_id can accept a single contact id
+rspec ./spec/lib/relateiq/list_spec.rb:139 # RelateIq::List#upsert_item creates a post request if no id is provided includes current list id
+rspec ./spec/lib/relateiq/list_spec.rb:74 # RelateIq::List.find_by_title returns a List with a matching title
+rspec ./spec/lib/relateiq/list_spec.rb:78 # RelateIq::List.find_by_title is case insensitive
+rspec ./spec/lib/relateiq/list_spec.rb:65 # RelateIq::List.all caches a copy in memory and does not call web method more than once
+rspec ./spec/lib/relateiq/list_spec.rb:60 # RelateIq::List.all returns field list_options as an array
+rspec ./spec/lib/relateiq/list_spec.rb:53 # RelateIq::List.all returns an array of lists
+Finished spec run
+Total duration: 0.116591
+ Total: 11
+ Failed: 7
+ Pending: 0
+
+Finished at 2015-09-24 23:49:55 -0500
+
+Randomized with seed 57142
+
+Coverage report generated for RSpec to /Users/dkarter/Dropbox/Developer/relateiq/coverage/coverage.json. 127 / 270 LOC (47.04%) covered.
+Wrote vim coverage script to .cadre/coverage.vim
