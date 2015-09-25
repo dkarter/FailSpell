@@ -2,7 +2,7 @@
 
 require 'failspell'
 
-file = '/Users/dkarter/Dropbox/Developer/failspell/result.json'
+file = './result.json'
 file_contents = File.read(file)
 parser = FailSpell::RspecJsonParser.new(file_contents)
 parser.parse
