@@ -1,14 +1,12 @@
-require "failspell/version"
 require 'highline/import'
 require 'colorize'
 require 'JSON'
 
+require "failspell/version"
+require "failspell/spec_runner"
+require "failspell/rspec_json_parser"
+
 module FailSpell
 end
-
-file = '/Users/dkarter/Dropbox/Developer/failspell/result.json'
-file_contents = File.read(file)
-parser = FailSpell::RspecJsonParser.new(file_contents)
-parser.parse
 
 
