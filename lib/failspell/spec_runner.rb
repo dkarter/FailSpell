@@ -7,7 +7,7 @@ module FailSpell
     end
 
     def run
-      `rspec #{spec_path}`
+      system "rspec #{spec_path}"
     end
   end
 end
