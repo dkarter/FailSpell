@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "failspell"
   spec.version       = Failspell::VERSION
   spec.authors       = ["Dorian Karter"]
-  spec.email         = ["dkarter@gmail.com"]
+  spec.email         = ["jobs@doriankarter.com"]
 
   spec.summary       = %q{A gem to help re-run failed specs in your suite}
   spec.description   = %q{A gem to help re-run failed specs in your suite}
