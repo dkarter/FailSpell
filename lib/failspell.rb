@@ -1,6 +1,6 @@
 require 'highline/import'
 require 'colorize'
-require 'JSON'
+require 'json'
 
 require 'failspell/version'
 require 'failspell/cli'
