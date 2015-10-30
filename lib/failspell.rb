@@ -2,9 +2,8 @@ require 'highline/import'
 require 'colorize'
 require 'JSON'
 
-require "failspell/version"
-require "failspell/spec_runner"
-require "failspell/rspec_json_parser"
+require 'failspell/version'
+require 'failspell/cli'
 
 module FailSpell
 end
