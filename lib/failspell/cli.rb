@@ -8,8 +8,9 @@ module FailSpell
     package_name 'FailSpell'
     default_task :run_suite
     map 'rf' => :rerun_failed
+    map 'rs' => :run_suite
 
-    desc 'run_suite', 'Run RSpec test suite'
+    desc 'run_suite', 'Run RSpec test suite (alias rs/run with no args)'
     def run_suite
       FailSpell::SpecRunner.new(ARGV[0] || 'spec').run_and_store_results
     end
