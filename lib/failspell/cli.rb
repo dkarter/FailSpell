@@ -19,7 +19,7 @@ module FailSpell
       file ||= './tmp/failspell_last_run.json' # add .fspell
 
       unless File.exists?(file)
-        puts "Cannot find file: #{file}".red
+        puts "Cannot find result file: #{file}".red
         exit
       end
 
