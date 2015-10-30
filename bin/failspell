@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'failspell'
-
-file = './result.json'
-file_contents = File.read(file)
-parser = FailSpell::RspecJsonParser.new(file_contents)
-parser.parse
-
