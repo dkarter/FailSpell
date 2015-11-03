@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/failspell.svg)](https://badge.fury.io/rb/failspell)[![Build Status](https://travis-ci.org/dkarter/FailSpell.svg)](https://travis-ci.org/dkarter/FailSpell) [![Code Climate](https://codeclimate.com/github/dkarter/FailSpell/badges/gpa.svg)](https://codeclimate.com/github/dkarter/FailSpell) [![Test Coverage](https://codeclimate.com/github/dkarter/FailSpell/badges/coverage.svg)](https://codeclimate.com/github/dkarter/FailSpell/coverage)
+[![Gem Version](https://badge.fury.io/rb/failspell.svg)](https://badge.fury.io/rb/failspell) [![Build Status](https://travis-ci.org/dkarter/FailSpell.svg)](https://travis-ci.org/dkarter/FailSpell) [![Code Climate](https://codeclimate.com/github/dkarter/FailSpell/badges/gpa.svg)](https://codeclimate.com/github/dkarter/FailSpell) [![Test Coverage](https://codeclimate.com/github/dkarter/FailSpell/badges/coverage.svg)](https://codeclimate.com/github/dkarter/FailSpell/coverage)
 # Failspell
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/failspell`. To experiment with that code, run `bin/console` for an interactive prompt.
@@ -23,7 +23,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+FailSpell commands:
+  fspell help [COMMAND]           # Describe available commands or one specific command
+  fspell rerun_failed [FILENAME]  # Re-Runs Failed Specs (alias rf)
+  fspell run_suite                # Run RSpec test suite (alias rs/run with no args)
+```
 
 ## Development
 
