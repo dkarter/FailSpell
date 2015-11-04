@@ -1,9 +1,22 @@
 [![Downloads](https://img.shields.io/badge/downloads-183-green.svg)](https://rubygems.org/gems/failspell) [![Gem Version](https://badge.fury.io/rb/failspell.svg)](https://rubygems.org/gems/failspell) [![Build Status](https://travis-ci.org/dkarter/FailSpell.svg)](https://travis-ci.org/dkarter/FailSpell) [![Code Climate](https://codeclimate.com/github/dkarter/FailSpell/badges/gpa.svg)](https://codeclimate.com/github/dkarter/FailSpell) [![Test Coverage](https://codeclimate.com/github/dkarter/FailSpell/badges/coverage.svg)](https://codeclimate.com/github/dkarter/FailSpell/coverage) [![Dependency Status](https://gemnasium.com/dkarter/FailSpell.svg)](https://gemnasium.com/dkarter/FailSpell)
 # Failspell
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/failspell`. To experiment with that code, run `bin/console` for an interactive prompt.
+Failspell is a test suite runner for rspec that simplifies the TDD workflow. To
+illustrate, imagine the following pedestrian scenario:
 
-TODO: Delete this and the text above, and describe your gem
+You have a project with a fairly large test suite, you implement a feature using
+TDD, the feature tests pass and you decide to run your test suite to make sure
+there are no regression side effects.
+
+Some 8 tests fail, bummer. Now you have to run each one individually to make
+sure you fixed them and at the end you want to run the whole suite again to make
+sure everything is green.
+
+It's a long description but everyone who uses tmux and vim as their "IDE" knows
+there are efficiencies that can be made.
+
+FailSpell magically runs your suite for you and then only failing tests,
+removing those that passed from the interactive menu.
 
 ## Installation
 
@@ -23,12 +36,23 @@ Or install it yourself as:
 
 ## Usage
 
+To run failspell use
+
+```sh
+fspell --help
+```
+
+This will output the following:
+
 ```
 FailSpell commands:
   fspell help [COMMAND]           # Describe available commands or one specific command
   fspell rerun_failed [FILENAME]  # Re-Runs Failed Specs (alias rf)
   fspell run_suite                # Run RSpec test suite (alias rs/run with no args)
 ```
+
+Running `fspell` with no arguments will run your test suite in the current
+project directory.
 
 ## Development
 
