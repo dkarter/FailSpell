@@ -1,6 +1,7 @@
 require 'thor'
 require 'failspell/spec_runner'
 require 'failspell/rspec_json_parser'
+require 'failspell/rspec_json_writer'
 require 'failspell/spec_menu'
 
 module FailSpell
@@ -24,12 +25,17 @@ module FailSpell
         exit
       end
 
-      failed_specs = FailSpell::RspecJsonParser.new(File.read(file)).parse
+      parser = FailSpell::RspecJsonParser.new(File.read(file))
+      failed_specs = parser.parse
 
-      FailSpell::SpecMenu.show(failed_specs) do |spec_path|
-        # move to outside so it's handled by block
+
+      FailSpell::SpecMenu.show.call(failed_specs) do |spec_path|
         puts "Re-Running rspec #{spec_path}".yellow
-        SpecRunner.new(spec_path).run
+        result = SpecRunner.new(spec_path).run
+
+        writer = FailSpell::RspecJsonWriter.new(file_path: file)
+        writer.update_spec_status(full_spec_path: spec_path, success: result)
+        writer.save
       end
     end
   end
