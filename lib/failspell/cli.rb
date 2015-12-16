@@ -18,16 +18,10 @@ module FailSpell
 
     desc 'rerun_failed [FILENAME]', 'Re-Runs Failed Specs (alias rf)'
     def rerun_failed(file = nil)
-      file ||= './tmp/failspell_last_run.json' # add .fspell
-
-      unless File.exists?(file)
-        puts "Cannot find result file: #{file}".red
-        exit
-      end
+      file = check_result_file(file)
 
       parser = FailSpell::RspecJsonParser.new(File.read(file))
       failed_specs = parser.parse
-
 
       FailSpell::SpecMenu.show.call(failed_specs) do |spec_path|
         puts "Re-Running rspec #{spec_path}".yellow
@@ -38,6 +32,17 @@ module FailSpell
         writer.save
       end
     end
+
+    private
+
+    def check_result_file(file = nil)
+      file ||= './tmp/failspell_last_run.json' # add .fspell
+
+      unless File.exist?(file)
+        puts "Cannot find result file: #{file}".red
+        exit
+      end
+      file
+    end
   end
 end
-
