@@ -7,5 +7,3 @@ require 'failspell/cli'
 
 module FailSpell
 end
-
-

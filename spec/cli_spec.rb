@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 describe FailSpell::CLI do
+  spec_runner = FailSpell::SpecRunner
+  spec_menu = FailSpell::SpecMenu
+
   context '#run_suite' do
     it 'calls spec runner' do
-      expect_any_instance_of(FailSpell::SpecRunner).to receive(:run_and_store_results)
+      expect_any_instance_of(spec_runner).to receive(:run_and_store_results)
       described_class.new.run_suite
     end
   end
@@ -16,20 +19,20 @@ describe FailSpell::CLI do
       full_failed_spec_path = "#{failed_test_path}:#{failed_test_line_number}"
       FileUtils.cp('./spec/fixtures/result.json', copy_file_path)
 
-      show_block = Proc.new do |failed_specs, &block|
+      show_block = proc do |_failed_specs, &block|
         block.call(full_failed_spec_path)
       end
 
-      allow(FailSpell::SpecMenu).to receive(:show).and_return(show_block)
+      allow(spec_menu).to receive(:show).and_return(show_block)
 
-      allow_any_instance_of(FailSpell::SpecRunner).to receive(:run).and_return(true)
+      allow_any_instance_of(spec_runner).to receive(:run).and_return(true)
 
       described_class.new.rerun_failed(copy_file_path)
 
       specs_json = JSON.parse(File.read(copy_file_path))['examples']
       newly_successful_spec = specs_json.find do |spec|
         spec['line_number'] == failed_test_line_number &&
-          spec['file_path'] == failed_test_path
+        spec['file_path'] == failed_test_path
       end
 
       expect(newly_successful_spec['status']).to eq('passed')

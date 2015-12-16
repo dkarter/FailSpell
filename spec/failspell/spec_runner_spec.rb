@@ -4,7 +4,8 @@ describe FailSpell::SpecRunner do
   context '#run' do
     it 'runs spec on system' do
       runner = described_class.new('some_path:123')
-      expect(runner).to receive(:system).with('rspec some_path:123') { 'success' }
+      command = 'rspec some_path:123'
+      expect(runner).to receive(:system).with(command) { 'success' }
       expect(runner.run).to eq('success')
     end
   end
@@ -17,5 +18,4 @@ describe FailSpell::SpecRunner do
       expect(runner.run_and_store_results).to eq('success')
     end
   end
-
 end
