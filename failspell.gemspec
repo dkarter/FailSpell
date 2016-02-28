@@ -4,20 +4,22 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'failspell/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "failspell"
+  spec.name          = 'failspell'
   spec.version       = Failspell::VERSION
-  spec.authors       = ["Dorian Karter"]
-  spec.email         = ["jobs@doriankarter.com"]
+  spec.authors       = ['Dorian Karter']
+  spec.email         = ['jobs@doriankarter.com']
 
-  spec.summary       = %q{A gem to help re-run failed specs in your suite}
-  spec.description   = %q{A gem to help re-run failed specs in your suite}
-  spec.homepage      = "https://github.com/dkarter/FailSpell"
-  spec.license       = "MIT"
+  spec.summary       = 'A gem to help re-run failed specs in your suite'
+  spec.description   = 'A gem to help re-run failed specs in your suite'
+  spec.homepage      = 'https://github.com/dkarter/FailSpell'
+  spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "bin"
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
+  spec.bindir        = 'bin'
   spec.executables   = ['fspell']
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
 
   spec.add_dependency 'colorize'
   spec.add_dependency 'thor'
@@ -30,5 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'fakefs'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-rspec'
   spec.add_development_dependency 'codeclimate-test-reporter'
 end
